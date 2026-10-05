@@ -5,8 +5,6 @@ Swarm Intelligence Lab - Assignment 1
 Swarm-Based Path Planning with Obstacles (PSO)
 """
 
-import os
-
 import config
 from grid import generate_problem, shortest_path_cost
 from pso import run_pso
@@ -14,7 +12,6 @@ from visualize import plot_convergence, plot_grid
 
 
 def main():
-    os.makedirs("results", exist_ok=True)
     size = config.GRID_SIZE
 
     # 1. problem instance, generated from the roll number
@@ -34,7 +31,7 @@ def main():
     print()
 
     plot_grid(obstacles, start, goal, size,
-              f"Problem instance (seed {config.SEED})", "results/problem.png")
+              f"Problem instance (seed {config.SEED})", "problem.png")
 
     # 2. PSO
     print("Running PSO ...")
@@ -58,11 +55,11 @@ def main():
     plot_grid(obstacles, start, goal, size,
               f"PSO best path - length {result['length']:.2f}, "
               f"collisions {result['collisions']}",
-              "results/best_path.png",
+              "best_path.png",
               path=result["path"], waypoints=result["waypoints"])
-    plot_convergence(result["history"], "results/convergence.png")
+    plot_convergence(result["history"], "convergence.png")
     print()
-    print("Figures saved in results/: problem.png, best_path.png, convergence.png")
+    print("Figures saved: problem.png, best_path.png, convergence.png")
 
 
 if __name__ == "__main__":

@@ -22,7 +22,7 @@ Nothing is hardcoded. `grid.py` calls `random.seed(1136232079)` and then generat
 | Start | (18, 19) |
 | Goal | (0, 0) |
 
-![Problem instance](results/problem.png)
+![Problem instance](problem.png)
 
 ## My approach
 
@@ -60,8 +60,8 @@ Velocities are clamped to the max velocity and waypoints are clamped to stay ins
 The diagram is drawn on two pages. Page 1 goes from Start to decoding a particle into a path, page 2 continues from the collision check to End.
 
 <p align="center">
-  <img src="docs/flow_diagram_1.jpg" alt="Hand-drawn flow diagram, page 1" width="48%">
-  <img src="docs/flow_diagram_2.jpg" alt="Hand-drawn flow diagram, page 2" width="48%">
+  <img src="flow_diagram_1.jpg" alt="Hand-drawn flow diagram, page 1" width="48%">
+  <img src="flow_diagram_2.jpg" alt="Hand-drawn flow diagram, page 2" width="48%">
 </p>
 
 ## Results
@@ -75,9 +75,9 @@ The diagram is drawn on two pages. Page 1 goes from Start to decoding a particle
 | True shortest path (Dijkstra, for reference only) | 28.799 |
 | Gap to the optimum | 2.0% |
 
-![Best path](results/best_path.png)
+![Best path](best_path.png)
 
-![Convergence](results/convergence.png)
+![Convergence](convergence.png)
 
 In the first iterations the best fitness is above 100, which means every particle is still hitting obstacles. Once it drops below 100 the swarm has found a collision-free route and from then on it only shortens it.
 
@@ -94,7 +94,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-The program prints the problem, the PSO progress and the best path with its cost, and saves three figures in `results/`.
+The program prints the problem, the PSO progress and the best path with its cost, and saves three figures in the project folder: `problem.png`, `best_path.png` and `convergence.png`.
 
 To try another problem instance, change `ROLL_NUMBER` in `config.py`.
 
@@ -107,5 +107,5 @@ To try another problem instance, change `ROLL_NUMBER` in `config.py`.
 | `pso.py` | Path decoding, collision check, fitness and the PSO loop |
 | `visualize.py` | matplotlib plots |
 | `main.py` | Runs everything |
-| `results/` | Output figures |
-| `docs/flow_diagram_1.jpg`, `docs/flow_diagram_2.jpg` | Photos of my hand-drawn flow diagram (2 pages) |
+| `problem.png`, `best_path.png`, `convergence.png` | Output figures |
+| `flow_diagram_1.jpg`, `flow_diagram_2.jpg` | Photos of my hand-drawn flow diagram (2 pages) |
